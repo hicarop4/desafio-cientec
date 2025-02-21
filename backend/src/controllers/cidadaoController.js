@@ -34,10 +34,12 @@ class CidadaoController {
   async createCidadao(req, res) {
     let body = "";
 
+    // Conforme for recebendo dados, vai concatenando na variável body
     req.on("data", (chunk) => {
       body += chunk;
     });
 
+    // Quando terminar de receber os dados, tenta criar o cidadão
     req.on("end", async () => {
       try {
         const cidadao = JSON.parse(body); // Assume que os dados vêm como JSON

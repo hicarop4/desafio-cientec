@@ -36,6 +36,7 @@ document.getElementById("form").addEventListener("submit", async (event) => {
   const nome = document.getElementById("nome").value;
   const cpf = document.getElementById("cpf").value;
 
+  // Verifica se o nome e cpf são válidos
   if (!nome || !cpf) {
     notyf.error("Preencha todos os campos!");
     return;
@@ -45,15 +46,20 @@ document.getElementById("form").addEventListener("submit", async (event) => {
     notyf.error("CPF inválido! Deve conter 11 dígitos numéricos.");
     return;
   }
+
+  // Atualiza o botão de submit para indicar que está cadastrando
   const formButton = document.getElementById("form-button");
   formButton.disabled = true;
   formButton.innerText = "Cadastrando...";
   formButton.classList.add("disabled");
+
+  // Cria um novo objeto com os dados do cidadão
   const novoUsuario = {
     nome: nome,
     cpf: cpf,
   };
 
+  // Cadastra o cidadão
   try {
     const data = await cadastrarUsuario(novoUsuario);
     notyf.success("Cidadão cadastrado com <strong>sucesso!</strong>\n");
@@ -62,6 +68,8 @@ document.getElementById("form").addEventListener("submit", async (event) => {
       "Erro ao cadastrar cidadão: <strong>" + error.message + "</strong>"
     );
   }
+
+  // Volta o botão de submit para o estado inicial
   formButton.disabled = false;
   formButton.innerText = "Enviar";
   formButton.classList.remove("disabled");
