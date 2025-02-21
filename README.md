@@ -12,9 +12,21 @@
 ### Configuração do Banco de Dados
 
 1. Crie um banco de dados no MySQL:
+
    ```sql
    CREATE DATABASE cadastro_cidadaos;
    ```
+
+   ```sql
+   CREATE TABLE cidadaos (
+   id int NOT NULL AUTO_INCREMENT,
+   nome varchar(255) NOT NULL,
+   cpf char(11) NOT NULL,
+   PRIMARY KEY (id),
+   UNIQUE KEY cpf (cpf)
+    ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+   ```
+
 2. Configure o arquivo `.env` na raiz do backend com as seguintes informações:
    ```env
    DB_HOST=localhost
