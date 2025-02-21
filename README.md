@@ -2,6 +2,11 @@
 
 ## Aplicação web para cadastro de pessoas físicas
 
+Stack utilizada: MySQL, Node.js, (HTML, CSS, JS)
+
+O backend foi feito utilizando a biblioteca HTTP.
+Nenhum framework foi utilizado nesse projeto.
+
 ### Como Rodar o Projeto
 
 #### Pré-requisitos
