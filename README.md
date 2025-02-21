@@ -62,4 +62,25 @@ Basta abrir o arquivo `index.html` no navegador.
 
 ---
 
-Agora o projeto estará rodando corretamente!
+Agora o projeto estará pronto para uso!
+
+## Endpoints da API
+
+A aplicação disponibiliza os seguintes endpoints para interação com os dados dos cidadãos:
+
+- **Buscar cidadãos**  
+  **Método:** `GET`  
+  **Endpoint:** `/api/v1/cidadaos`  
+  **Descrição:** Retorna a lista de cidadãos cadastrados.  
+  **Query Parameters:**
+
+  - `id` (opcional): Filtra cidadãos pelo id cadastrado.
+  - `nome` (opcional): Filtra cidadãos pelo nome.
+  - `cpf` (opcional): Filtra cidadãos pelo CPF.
+
+- **Cadastrar cidadão**  
+  **Método:** `POST`  
+  **Endpoint:** `/api/v1/cidadaos/create`  
+  **Descrição:** Insere um novo cidadão no banco de dados.
+
+---
