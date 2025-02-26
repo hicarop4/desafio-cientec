@@ -61,8 +61,12 @@ document.getElementById("form").addEventListener("submit", async (event) => {
 
   // Cadastra o cidadão
   try {
-    const data = await cadastrarUsuario(novoUsuario);
-    notyf.success("Cidadão cadastrado com <strong>sucesso!</strong>\n");
+    const { cidadao: cidadaoCadastrado } = await cadastrarUsuario(novoUsuario);
+    notyf.success(
+      `Cidadão cadastrado com sucesso! <strong>${
+        cidadaoCadastrado.nome
+      } ${formatCPF(cidadaoCadastrado.cpf)}</strong>`
+    );
   } catch (error) {
     notyf.error(
       "Erro ao cadastrar cidadão: <strong>" + error.message + "</strong>"
@@ -157,4 +161,9 @@ async function cadastrarUsuario(usuario) {
   }
 
   return await response.json();
+}
+
+// Função auxiliar para formatar o CPF do cidadão
+function formatCPF(cpf) {
+  return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
 }
