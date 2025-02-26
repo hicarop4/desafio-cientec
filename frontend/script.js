@@ -128,7 +128,7 @@ document.getElementById("search-btn").addEventListener("click", async (e) => {
     tr.appendChild(tdNome);
 
     const tdCpf = document.createElement("td");
-    tdCpf.textContent = dado.cpf;
+    tdCpf.textContent = formatCPF(dado.cpf);
     tr.appendChild(tdCpf);
 
     // Adiciona o tr ao tbody
